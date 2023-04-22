@@ -15,20 +15,21 @@ app.config["UPLOAD_FOLDER"] = picfolder
 
 @app.route("/", methods = ['GET', 'POST'])
 def predict():
-    mybedrooms = request.form.get("bedrooms", False)
-    mybathrooms	= request.form.get("bathrooms", False)
-    mystories	= request.form.get("stories", False)
-    mymainroad = request.form.get("mainroad", False)	
-    myguestroom = request.form.get("guestroom", False)	
-    mybasement =request.form.get("basement", False)	
-    myhotwaterheating =request.form.get("hotwaterheating", False) 	
-    myairconditioning	= request.form.get("airconditioning", False)
-    myparking	= request.form.get("parking", False)
-    myprefarea = request.form.get("prefarea", False)	
-    myfurnishingstatus = request.form.get("furnishingstatus", False)
+    mybedrooms = int(request.form.get("bedrooms", False))
+    mybathrooms	= int(request.form.get("bathrooms", False))
+    mystories	= int(request.form.get("stories", False))
+    mymainroad = int(request.form.get("mainroad", False))	
+    myguestroom = int(request.form.get("guestroom", False))	
+    mybasement = int(request.form.get("basement", False))	
+    myhotwaterheating = int(request.form.get("hotwaterheating", False)) 	
+    myairconditioning	= int(request.form.get("airconditioning", False))
+    myparking	= int(request.form.get("parking", False))
+    myprefarea = int(request.form.get("prefarea", False))	
+    myfurnishingstatus = int(request.form.get("furnishingstatus", False))
+    print([mybedrooms,mybathrooms,mystories,mymainroad,myguestroom,mybasement,myhotwaterheating,myairconditioning,myparking,  myprefarea,myfurnishingstatus ])
     myfin = np.array([[mybedrooms,mybathrooms,mystories,mymainroad,myguestroom,mybasement,myhotwaterheating,myairconditioning,myparking,  myprefarea,myfurnishingstatus ]])
     prediction = model.predict(myfin)
-    return render_template("predict.html", my_ourbeans=f"The Name of the Beans is {prediction[0]}")
+    return render_template("homepage.html", my_ourbeans=f"The Price of the house  is ${prediction[0]}")
 
 
 

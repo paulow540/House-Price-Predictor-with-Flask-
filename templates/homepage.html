@@ -2,63 +2,103 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/homepage.css">
-    <title>Model Deployment</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/homepage.css">
+  <title>Model Deployment</title>
 
 </head>
 
 <body>
-    <h1>House Price Predictor</h1>
-    <form  action="/" method="POST">
-      
-      <input type="text" name="bedrooms" id="bedrooms" required>
-  
-     
-      <input type="text" name="bathrooms" id="bathrooms" required>
-  
-      
-      <input type="checkbox" name="mainroad" id="mainroad">
-  
-      <input type="checkbox" name="guestroom" id="guestroom">
-  
-      
-      <input type="checkbox" name="basement" id="basement">
-  
-      
-      <input type="checkbox" name="hotwaterheating" id="hotwaterheating">
-  
-      
-      <input type="checkbox" name="airconditioning" id="airconditioning">
-  
-    
-      <input type="text" name="parking" id="parking" required>
-  
-      
-      <input type="checkbox" name="prefarea" id="prefarea">
-  
-      <label for="furnishingstatus">Furnishing Status:</label>
-      <select name="furnishingstatus" id="furnishingstatus">
-        <option value="furnished">Furnished</option>
-        <option value="unfurnished">Unfurnished</option>
-        <option value="semi-furnished">Semi-Furnished</option>
+  <h1>House Price Predictor</h1>
+  <form action="/" method="POST">
+    <label for="">Bedrooms:
+      <input type="text" name="bedrooms" placeholder="bedrooms" required>
+    </label>
+
+
+    <label for="">Bathrooms:
+      <input type="text" name="bathrooms" placeholder="bathrooms" required>
+    </label>
+
+
+    <label for="">Stories:
+      <input type="text" name="stories" placeholder="stories" required>
+    </label>
+
+
+    <label for="">Mainroad:
+      <input type="checkbox" name="mainroad" value="1" placeholder="mainroad">
+    </label>
+
+
+    <label for="">Guestroom:
+      <input type="checkbox" name="guestroom" value="1" placeholder="guestroom">
+    </label>
+
+
+    <label for="">Basement:
+      <input type="checkbox" name="basement" value="1" placeholder="basement">
+    </label>
+
+
+    <label for="">Hotwaterheating:
+      <input type="checkbox" name="hotwaterheating" value="1" placeholder="hotwaterheating">
+    </label>
+
+
+    <label for="">Airconditioning:
+      <input type="checkbox" name="airconditioning" value="1" placeholder="airconditioning">
+    </label>
+
+
+    <label for="">Parking:
+      <input type="text" name="parking" placeholder="parking" required>
+    </label>
+
+
+    <label for="">Prefarea:
+      <input type="checkbox" name="prefarea" value="1" placeholder="prefarea">
+    </label>
+
+    <label for="furnishingstatus">Furnishing Status:
+
+      <select name="furnishingstatus" placeholder="furnishingstatus">
+        <option value="1">Furnished</option>
+        <option value="2">Unfurnished</option>
+        <option value="3">Semi-Furnished</option>
       </select>
-  
-      <button  type="submit" name="predict">Predict</button>
-  
-    </form>
- 
-  
-    <div>
-        <h2>
+    </label>
 
-            {{ my_ourbeans }}
-        </h2>
 
+    <button type="submit" name="predict">Predict</button>
+
+  </form>
+
+
+
+  <div>
     
-    </div>
+
+    <div>
+
+      {%if my_ourbeans == "" %}
+      <h2>
+        pas
+      </h2>
+      
+
+      {%else%} 
+      <h2>
+        {{ my_ourbeans }} 
+      </h2>
+
+      {%endif%} 
+
+  
+  </div>
+  </div>
 
 </body>
 
