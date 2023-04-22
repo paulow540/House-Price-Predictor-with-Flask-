@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/homepage.css">
+    <title>Model Deployment</title>
+
+</head>
+
+<body>
+    <h1>House Price Predictor</h1>
+    <form  action="/" method="POST">
+      
+      <input type="text" name="bedrooms" id="bedrooms" required>
+  
+     
+      <input type="text" name="bathrooms" id="bathrooms" required>
+  
+      
+      <input type="checkbox" name="mainroad" id="mainroad">
+  
+      <input type="checkbox" name="guestroom" id="guestroom">
+  
+      
+      <input type="checkbox" name="basement" id="basement">
+  
+      
+      <input type="checkbox" name="hotwaterheating" id="hotwaterheating">
+  
+      
+      <input type="checkbox" name="airconditioning" id="airconditioning">
+  
+    
+      <input type="text" name="parking" id="parking" required>
+  
+      
+      <input type="checkbox" name="prefarea" id="prefarea">
+  
+      <label for="furnishingstatus">Furnishing Status:</label>
+      <select name="furnishingstatus" id="furnishingstatus">
+        <option value="furnished">Furnished</option>
+        <option value="unfurnished">Unfurnished</option>
+        <option value="semi-furnished">Semi-Furnished</option>
+      </select>
+  
+      <button  type="submit" name="predict">Predict</button>
+  
+    </form>
+ 
+  
+    <div>
+        <h2>
+
+            {{ my_ourbeans }}
+        </h2>
+
+    
+    </div>
+
+</body>
+
+</html>
