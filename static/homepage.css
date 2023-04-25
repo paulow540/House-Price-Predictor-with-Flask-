@@ -1,13 +1,51 @@
-
-*{
-    background-color: whitesmoke;
+h2{
+    margin-left: 450px;
 }
 
-input{
+h4{
+    margin-left: 350px;
+}
+
+body{
+    background: black;
+    color: white;
+}
+
+.input{
    border: 1px solid blue;
-   width: 100px;
+   width: 200px;
+   border-radius: 5px;
    
 }
+
 label{
     display: block;
+}
+
+form{
+    border: 1px solid black;
+    width: 300px;
+    padding: auto;
+    box-shadow: 2px 2px 2px 2px white;
+    margin: auto;
+}
+
+button{
+    margin-left: 100px;
+    padding: 2px 10px 2px 10px;
+    box-shadow: 2px  1px rgb(190, 190, 213);
+
+}
+
+@media (max-width: 768px) {
+   h2{
+    min-height: auto;
+   }
+   h2{
+    margin-left: 20px;
+}
+
+h4{
+    margin-left: 30px;
+}
 }
