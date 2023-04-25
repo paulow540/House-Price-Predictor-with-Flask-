@@ -29,7 +29,12 @@ def predict():
     print([mybedrooms,mybathrooms,mystories,mymainroad,myguestroom,mybasement,myhotwaterheating,myairconditioning,myparking,  myprefarea,myfurnishingstatus ])
     myfin = np.array([[mybedrooms,mybathrooms,mystories,mymainroad,myguestroom,mybasement,myhotwaterheating,myairconditioning,myparking,  myprefarea,myfurnishingstatus ]])
     prediction = model.predict(myfin)
-    return render_template("homepage.html", my_ourbeans=f"The Price of the house  is ${prediction[0]}")
+
+    if prediction[0]:
+        my = prediction[0]
+    else:
+        my = " "
+    return render_template("homepage.html", my_ourbeans=f" ${my}")
 
 
 

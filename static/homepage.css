@@ -25,7 +25,7 @@ label{
 form{
     border: 1px solid black;
     width: 300px;
-    padding: auto;
+    padding: 5px;
     box-shadow: 2px 2px 2px 2px white;
     margin: auto;
 }
