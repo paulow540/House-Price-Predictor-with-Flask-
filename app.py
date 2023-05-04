@@ -33,8 +33,9 @@ def mypredict():
         myfurnishingstatus = int(request.form.get("furnishingstatus", False))
         myfin = np.array([[mybedrooms,mybathrooms,mystories,mymainroad,myguestroom,mybasement,myhotwaterheating,myairconditioning,myparking,  myprefarea,myfurnishingstatus ]])
         prediction = model.predict(myfin)
+        dataall = round(prediction[0],2)
         print(mybedrooms)  
-        return render_template("homepage.html", my_ourbeans=f" ${prediction[0]}")
+        return render_template("homepage.html", my_ourbeans=f"  ${dataall}")
             
     else:
         return render_template("homepage.html", my_ourbeans=f"  ")
