@@ -13,36 +13,39 @@ app = Flask(__name__)
 model = pickle.load(open("model.pkl", "rb"))
 app.config["UPLOAD_FOLDER"] = picfolder
 
-@app.route("/", methods = ['GET', 'POST'])
-def predict():
-    mybedrooms = int(request.form.get("bedrooms", False))
-    mybathrooms	= int(request.form.get("bathrooms", False))
-    mystories	= int(request.form.get("stories", False))
-    mymainroad = int(request.form.get("mainroad", False))	
-    myguestroom = int(request.form.get("guestroom", False))	
-    mybasement = int(request.form.get("basement", False))	
-    myhotwaterheating = int(request.form.get("hotwaterheating", False)) 	
-    myairconditioning	= int(request.form.get("airconditioning", False))
-    myparking	= int(request.form.get("parking", False))
-    myprefarea = int(request.form.get("prefarea", False))	
-    myfurnishingstatus = int(request.form.get("furnishingstatus", False))
-    print([mybedrooms,mybathrooms,mystories,mymainroad,myguestroom,mybasement,myhotwaterheating,myairconditioning,myparking,  myprefarea,myfurnishingstatus ])
-    myfin = np.array([[mybedrooms,mybathrooms,mystories,mymainroad,myguestroom,mybasement,myhotwaterheating,myairconditioning,myparking,  myprefarea,myfurnishingstatus ]])
-    prediction = model.predict(myfin)
+@app.route("/")
+def home():
+    return render_template("homepage.html")
 
-    if prediction[0]:
-        my = prediction[0]
+@app.route("/", methods = ["GET",'POST'])
+def mypredict():
+    if request.method == 'POST':
+        mybedrooms = int(request.form.get("bedrooms", False))
+        mybathrooms	= int(request.form.get("bathrooms", False))
+        mystories	= int(request.form.get("stories", False))
+        mymainroad = int(request.form.get("mainroad", False))	
+        myguestroom = int(request.form.get("guestroom", False))	
+        mybasement = int(request.form.get("basement", False))	
+        myhotwaterheating = int(request.form.get("hotwaterheating", False)) 	
+        myairconditioning	= int(request.form.get("airconditioning", False))
+        myparking	= int(request.form.get("parking", False))
+        myprefarea = int(request.form.get("prefarea", False))	
+        myfurnishingstatus = int(request.form.get("furnishingstatus", False))
+        myfin = np.array([[mybedrooms,mybathrooms,mystories,mymainroad,myguestroom,mybasement,myhotwaterheating,myairconditioning,myparking,  myprefarea,myfurnishingstatus ]])
+        prediction = model.predict(myfin)
+        print(mybedrooms)  
+        return render_template("homepage.html", my_ourbeans=f" ${prediction[0]}")
+            
     else:
-        my = " "
-    return render_template("homepage.html", my_ourbeans=f" ${my}")
+        return render_template("homepage.html", my_ourbeans=f"  ")
+         
+
+
 
 
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
 
 
 

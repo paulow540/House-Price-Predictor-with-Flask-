@@ -36,27 +36,27 @@
 
 
     <label for="">Mainroad:
-      <input type="checkbox" name="mainroad" value="1"  placeholder="mainroad">
+      <input type="checkbox" name="mainroad" value="1" placeholder="mainroad">
     </label>
 
 
     <label for="">Guestroom:
-      <input type="checkbox" name="guestroom" value="1"  placeholder="guestroom">
+      <input type="checkbox" name="guestroom" value="1" placeholder="guestroom">
     </label>
 
 
     <label for="">Basement:
-      <input type="checkbox" name="basement" value="1"  placeholder="basement">
+      <input type="checkbox" name="basement" value="1" placeholder="basement">
     </label>
 
 
     <label for="">Hotwaterheating:
-      <input type="checkbox" name="hotwaterheating" value="1"  placeholder="hotwaterheating">
+      <input type="checkbox" name="hotwaterheating" value="1" placeholder="hotwaterheating">
     </label>
 
 
     <label for="">Airconditioning:
-      <input type="checkbox" name="airconditioning" value="1"  placeholder="airconditioning">
+      <input type="checkbox" name="airconditioning" value="1" placeholder="airconditioning">
     </label>
 
 
@@ -66,7 +66,7 @@
 
 
     <label for="">Prefarea:
-      <input type="checkbox" name="prefarea" value="1"  placeholder="prefarea">
+      <input type="checkbox" name="prefarea" value="1" placeholder="prefarea">
     </label>
 
     <label for="furnishingstatus">Furnishing Status:
@@ -78,11 +78,12 @@
       </select>
     </label>
 
+    <a href="{{ url_for('mypredict') }}"><button type="submit" onclick="pre()" name="mypredict">Predict</button></a>
 
-    <button type="submit" onclick="pre()" name="predict">Predict</button>
 
   </form>
 
+  <h3 style="margin: auto;"> The Price of the house is {{ my_ourbeans }}</h3>
 
 
 
@@ -90,25 +91,8 @@
 
 
 
-  {%if my_ourbeans  %}
-  <h4>
-    The Price of the house  is {{ my_ourbeans }}
-  </h4>
 
-
-  {%else%}
-  <h4>
-    
-  </h4>
-
-  {%endif%}
-
-
-
-
-
-
-<script src="/static/button.js"></script>
+  <script src="/static/button.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
